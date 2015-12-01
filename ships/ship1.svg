@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="46.601837"
+   height="44.513229"
+   id="svg3014"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="ship1.svg"
+   inkscape:export-filename="/home/hoog/Dropbox/Space_Boats/ships/ship1.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs3016" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#000000"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.3744318"
+     inkscape:cx="207.575"
+     inkscape:cy="-21.808121"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1301"
+     inkscape:window-height="744"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata3019">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-283.37918,-555.82232)">
+    <path
+       sodipodi:type="arc"
+       style="fill:#483737"
+       id="path3022"
+       sodipodi:cx="350"
+       sodipodi:cy="626.64789"
+       sodipodi:rx="50"
+       sodipodi:ry="42.857143"
+       d="m 400,626.64789 c 0,23.66934 -22.38576,42.85714 -50,42.85714 -27.61424,0 -50,-19.1878 -50,-42.85714 0,-23.66935 22.38576,-42.85715 50,-42.85715 27.61424,0 50,19.1878 50,42.85715 z"
+       transform="matrix(0.34834528,0,0,0.34917692,184.66538,361.742)"
+       inkscape:export-filename="/home/hoog/Dropbox/Space_Boats/ships/ship1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#000080"
+       id="path3024"
+       sodipodi:cx="359.45441"
+       sodipodi:cy="522.34064"
+       sodipodi:rx="6.1067243"
+       sodipodi:ry="12.845179"
+       d="m 365.56113,522.34064 c 0,7.09419 -2.73407,12.84518 -6.10672,12.84518 -3.37265,0 -6.10673,-5.75099 -6.10673,-12.84518 0,-7.0942 2.73408,-12.84518 6.10673,-12.84518 3.37265,0 6.10672,5.75098 6.10672,12.84518 z"
+       transform="matrix(1.3092978,0,0,0.92159808,-163.83407,99.066253)"
+       inkscape:export-filename="/home/hoog/Dropbox/Space_Boats/ships/ship1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#800000"
+       id="path3026"
+       sodipodi:cx="305.96793"
+       sodipodi:cy="526.13104"
+       sodipodi:rx="6.5278773"
+       sodipodi:ry="25.058626"
+       d="m 312.4958,526.13104 c 0,13.8395 -2.92263,25.05863 -6.52787,25.05863 -3.60525,0 -6.52788,-11.21913 -6.52788,-25.05863 0,-13.83949 2.92263,-25.05862 6.52788,-25.05862 3.60524,0 6.52787,11.21913 6.52787,25.05862 z"
+       transform="matrix(0.34834528,0,0,0.34917692,199.77618,396.59452)"
+       inkscape:export-filename="/home/hoog/Dropbox/Space_Boats/ships/ship1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="star"
+       style="fill:#483737"
+       id="path3028"
+       sodipodi:sides="5"
+       sodipodi:cx="349.55731"
+       sodipodi:cy="629.52417"
+       sodipodi:r1="70.333878"
+       sodipodi:r2="35.166939"
+       sodipodi:arg1="-1.5767843"
+       sodipodi:arg2="-0.94846575"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 349.13616,559.19155 20.92103,41.7587 46.26027,6.4394 -33.24993,32.80124 8.17098,45.98601 -41.47062,-21.48642 -41.21033,21.98152 7.61968,-46.08057 -33.64037,-32.40069 46.17984,-6.99294 z"
+       inkscape:transform-center-x="0.045340555"
+       inkscape:transform-center-y="-2.3019155"
+       transform="matrix(0.34834528,0,0,0.34917692,184.95879,360.56554)"
+       inkscape:export-filename="/home/hoog/Dropbox/Space_Boats/ships/ship1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#000080"
+       id="path3030"
+       sodipodi:cx="343.24002"
+       sodipodi:cy="495.80798"
+       sodipodi:rx="15.161522"
+       sodipodi:ry="23.374012"
+       d="m 358.40154,495.80798 c 0,12.90911 -6.78804,23.37402 -15.16152,23.37402 -8.37348,0 -15.16152,-10.46491 -15.16152,-23.37402 0,-12.90911 6.78804,-23.37401 15.16152,-23.37401 8.37348,0 15.16152,10.4649 15.16152,23.37401 z"
+       transform="matrix(0.58057544,0,0,0.46242349,107.15529,350.88702)"
+       inkscape:export-filename="/home/hoog/Dropbox/Space_Boats/ships/ship1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#800000"
+       id="path3034"
+       sodipodi:cx="336.29099"
+       sodipodi:cy="502.75702"
+       sodipodi:rx="2.7374971"
+       sodipodi:ry="17.688442"
+       d="m 339.02848,502.75702 c 0,9.76906 -1.22562,17.68844 -2.73749,17.68844 -1.51188,0 -2.7375,-7.91938 -2.7375,-17.68844 0,-9.76906 1.22562,-17.68844 2.7375,-17.68844 1.51187,0 2.73749,7.91938 2.73749,17.68844 z"
+       transform="matrix(0.5627116,0,0,0.4032162,116.97712,376.99932)"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       inkscape:export-filename="/home/hoog/Dropbox/Space_Boats/ships/ship1.png" />
+  </g>
+</svg>
