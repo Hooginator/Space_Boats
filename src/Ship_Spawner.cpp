@@ -70,7 +70,7 @@ bool Ship_Spawner::loadTemplates(std::string filename)
   
   std::string graphic_file;
   int num = 0;
-  printf("HERE");
+  printf("Bug Here, fix is use XML files.  ");
   // OK, so I got it to recognize when # is the first character!! BUUUT now it doesn't work.  it either constantly reads the first line
   // OR graphic_file doesn't change after the first run.
   // either way, graphics_file is '#' after the first line even though only 1 line starts with #

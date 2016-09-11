@@ -94,45 +94,44 @@ int game(std::string Ships_File)
     }
     
     
-    
+    // load the template for which types of weapons each enemy will have
     Weapon_Template *weapons = new Weapon_Template;
     weapons->loadTemplate(weapon_templates);
     
     // Ship_Spawner will create enemy ships according to certain parameters within the .dat files
     Ship_Spawner *ship_spawner = new Ship_Spawner;
-    printf("about to load templates\n");
+    printf("about to load Ship Spawner templates\n");
     ship_spawner->loadTemplates(ship_templates);
     ship_spawner->loadSpawners(Ships_File);
    
     
+    // I can't remember what this parameter is :S I will have to make all of these in the INPUT file
     int array[1];
     array[0] = 0;
-    // Initialize main ship parameters.
+    // Create the "list" of main ships and Initialize main ship parameters.
     Ships *main_ship = new Ships;
     main_ship->addShip(300,300,0,5,3,1,true,0,20,10,ship_images[0],0,1,array,weapons);
-    //main_ship->addWeapon(25,-10,0,40,5,5,1,NULL,projectile_images[0],0);
-    //main_ship->addWeapon(25,-10,0.5,150,2,5,1,NULL,projectile_images[0]);
-    //main_ship->addWeapon(25,-10,-0.6,200,2,5,1,NULL,projectile_images[0]);
     
     // Enemy ships which will be created via the spawner
     Ships *enemy_ships = new Ships;
     
     // Initial configuration for the background images
+    // There are two at al times so that the screen is guaranteed to be covered (they move back in a leapfrog fashion.)
     int background1_x_pos = 0;
     int background1_y_pos = 0;
     int background2_x_pos = 0;
     int background2_y_pos = -background->h;
     
     // Valiables for screen refreshing
-    clock_t t1;
+    clock_t t1;// time that the frame starts at
     clock_t t2;
     clock_t delta_t;
     bool New_Frame;
     
-    //Number of frames that has passed so far
+    //Number of frames that have passed so far
     int frames = 0;
     
-    printf("Setup complete, starting loop\n");
+    printf("Setup complete, starting Main Loop\n");
     //While the user hasn't quit
     while( quit == false )
     {
@@ -141,20 +140,27 @@ int game(std::string Ships_File)
 	
 	// Empty the screen of anything in the previous frame
 	SDL_FillRect(screen, 0, 0);
-	//BACKGROUND
+	
+	/********************** BACKGROUND *************************************/
 	// Force the background to move at a constant rate towards the player and have it repeat when we run out of background
 	Move_Background(background1_x_pos, background1_y_pos, background2_x_pos, background2_y_pos);
 	
-	// Spawning enemy ships
-	ship_spawner->spawnShips(frames, enemy_ships, weapons);
 	
-	// MAIN SHIP
+	
+	/********************** ENEMY SHIPS *************************************/
+	// Spawning enemy ships from the ship spawner for the level
+	ship_spawner->spawnShips(frames, enemy_ships, weapons);
+
+	
+	/********************** MAIN SHIP ***************************************/ 
 	// Read input commands for the main ship, also read for quitting with Enter (I'll remove this after testing)
 	main_ship->moveShips(quit, SCREEN_HEIGHT, SCREEN_WIDTH);
 	main_ship->showShips(screen);
 	main_ship->generateProjectiles(ally_projectiles, enemy_ships);
+
 	
-	//ENEMY SHIPS
+	
+	//Move Enemy Ships
 	enemy_ships->moveShips(quit, SCREEN_HEIGHT, SCREEN_WIDTH);
 	enemy_ships->showShips(screen);
 	enemy_ships->generateProjectiles(enemy_projectiles,main_ship);
