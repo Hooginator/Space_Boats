@@ -1,3 +1,3 @@
 #!/bin/bash
 
-kate *.cpp *.h Bugs.dat
+kate src/*.cpp hdr/*.h Bugs.dat &

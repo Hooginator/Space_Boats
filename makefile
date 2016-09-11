@@ -1,2 +1,2 @@
 all:
-	g++ -I ./hdr -C src/*.cpp -I/usr/local/include -L/usr/local/lib -lSDL -lSDL_image
+	g++ src/*.cpp -o Space_Boats -L/usr/local/lib -lSDL -lSDL_image -I./hdr -I/usr/local/include

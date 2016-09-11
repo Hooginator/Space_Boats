@@ -140,16 +140,20 @@ int game(std::string Ships_File)
 	//BACKGROUND
 	// Force the background to move at a constant rate towards the player and have it repeat when we run out of background
 	Move_Background(background1_x_pos, background1_y_pos, background2_x_pos, background2_y_pos);
-	
+
+
+        //printf("test 1 \n");	
 	// Spawning enemy ships
 	ship_spawner->spawnShips(frames, enemy_ships, weapons);
+
+        //printf("test 2 \n");		
 	
 	// MAIN SHIP
 	// Read input commands for the main ship, also read for quitting with Enter (I'll remove this after testing)
 	main_ship->moveShips(quit, SCREEN_HEIGHT, SCREEN_WIDTH);
 	main_ship->showShips(screen);
 	main_ship->generateProjectiles(ally_projectiles, enemy_ships);
-	
+
 	//ENEMY SHIPS
 	enemy_ships->moveShips(quit, SCREEN_HEIGHT, SCREEN_WIDTH);
 	enemy_ships->showShips(screen);
@@ -161,6 +165,7 @@ int game(std::string Ships_File)
 	
 	enemy_projectiles->moveProjectiles();
 	enemy_projectiles->showProjectiles(screen);
+
 	
 	// COLLISION DETECTION
 	main_ship->checkProjectileHit(enemy_projectiles);
@@ -189,6 +194,7 @@ int game(std::string Ships_File)
 	    usleep(Clocks_Error/CLOCKS_PER_SEC*1e6);
 	  }
 	}
+	
 	//Update the screen  
 	if( refresh_screen(screen)  == -1 )
 	  {

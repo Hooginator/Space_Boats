@@ -67,10 +67,41 @@ bool Ship_Spawner::loadTemplates(std::string filename)
     printf("Error loading ship templates \n");
     return false;
   }
-  int num = 0;
   
   std::string graphic_file;
-  while(file >> graphic_file >> templates[num].max_speed >> templates[num].mass >> templates[num].max_force  >> templates[num].radius >> templates[num].max_hp >> templates[num].collide_damage 
+  int num = 0;
+  printf("HERE");
+  // OK, so I got it to recognize when # is the first character!! BUUUT now it doesn't work.  it either constantly reads the first line
+  // OR graphic_file doesn't change after the first run.
+  // either way, graphics_file is '#' after the first line even though only 1 line starts with #
+  // JUST CHANGE TO FUCKING XML
+  bool done = false;
+  while(!done){
+    if(file >> graphic_file >> templates[num].max_speed >> templates[num].mass >> templates[num].max_force  >> templates[num].radius >> templates[num].max_hp >> templates[num].collide_damage 
+  >> templates[num].nweapons)
+    {
+      if(load_files(templates[num].graphic, graphic_file) == false)
+      {
+	return 1;
+      }
+      int i = 0;
+      while(i < templates[num].nweapons)
+      {
+	file >> templates[num].weapons[i];
+	i++;
+      }
+      num ++;
+      
+    }else{
+      if(graphic_file.at(0) == '#'){
+	printf("Commented Line Detected\n");
+      }else{
+	done = true;
+      }
+    }
+  }
+  
+  /*while(file >> graphic_file >> templates[num].max_speed >> templates[num].mass >> templates[num].max_force  >> templates[num].radius >> templates[num].max_hp >> templates[num].collide_damage 
     >> templates[num].nweapons)
   {
     if(load_files(templates[num].graphic, graphic_file) == false)
@@ -84,7 +115,7 @@ bool Ship_Spawner::loadTemplates(std::string filename)
       i++;
     }
     num ++;
-  }
+  }*/
 }
 bool Ship_Spawner::loadSpawners(std::string filename)
 {
