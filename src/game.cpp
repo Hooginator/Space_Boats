@@ -13,7 +13,7 @@ const double Clocks_Per_Refresh = CLOCKS_PER_SEC/FPS;
 // This will dictate how long to wait each time it is not time to refresh the screen (between frames)
 const double Clocks_Error = Clocks_Per_Refresh / 100;
 
-//Maximum Number of Projectile Images
+//Maximum Number of unique Projectile Images
 // This will likely be put into Projectiles.cpp soon
 const int unique_projectiles = 10;
 
@@ -24,7 +24,7 @@ const int BACKGROUND_SPEED = 5;
 SDL_Surface *background = NULL;
 SDL_Surface *screen = NULL;
 
-// Not too sure if this is how to go about things: 
+// Collection of ship and projectile images to be displayed on the screen 
 SDL_Surface *ship_images[unique_ships];
 SDL_Surface *projectile_images[unique_projectiles];
 
@@ -32,7 +32,7 @@ SDL_Surface *projectile_images[unique_projectiles];
 //I'm not sure if this is needed right now.  Maybe for queueing up inputs?
 SDL_Event event;
 
-// Projectile tracking
+// Projectile tracking, essentially a list of all ally / enemy projectiles on the screen
 Projectiles *ally_projectiles = new Projectiles;
 Projectiles *enemy_projectiles = new Projectiles;
 
@@ -46,7 +46,7 @@ int game(std::string Ships_File)
     printf("/*************** Starting Game *******************/\n");
     printf("/*************************************************/\n");
     
-    // Filenames and stuff that should probably not be hardcoded in forever
+    // Filenames and stuff that will later be in an input file
     std::string ship1 = "ships/main_ship.png";
     std::string ship2 = "yellow.png";
     std::string projectile1 = "projectiles/shot1.png";
@@ -54,20 +54,24 @@ int game(std::string Ships_File)
     std::string ship_templates = "ship_templates.dat";
     std::string weapon_templates = "weapon_templates.dat";
     
-    //Make sure the program waits for a quit
+    //Make sure the program waits for a quit until quit == true
     bool quit = false;
+    
     //Initialize screen 
     screen = init(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP);
 
-    //Load the image files.  This will be done from the template eventually
+    //Load the image files.  This will should depend on inputs from the input file
     std::string ship_filename[unique_ships];
     ship_filename[0] = ship1;
     // pink.png was showing up with white border.  
     // Fixed it by making the bg black AND zero alpha
     ship_filename[1] = ship2;
     
+    // Names of all of the projectile image files.
     std::string projectile_filename[MAX_PROJECTILES];
     projectile_filename[0] = projectile1;
+    
+    // Load all of the images , if any fails kill game with error message
     if( load_files(background, background1) == false )
     {
         printf("Error loading background image\n");
@@ -92,11 +96,11 @@ int game(std::string Ships_File)
     
     
     Weapon_Template *weapons = new Weapon_Template;
-    // Something with the following line is busted.  Good luck  undefined reference to `Weapon_Template::loadTemplate(char const*)'
     weapons->loadTemplate(weapon_templates);
     
     // Ship_Spawner will create enemy ships according to certain parameters within the .dat files
     Ship_Spawner *ship_spawner = new Ship_Spawner;
+    printf("about to load templates\n");
     ship_spawner->loadTemplates(ship_templates);
     ship_spawner->loadSpawners(Ships_File);
    
@@ -140,20 +144,16 @@ int game(std::string Ships_File)
 	//BACKGROUND
 	// Force the background to move at a constant rate towards the player and have it repeat when we run out of background
 	Move_Background(background1_x_pos, background1_y_pos, background2_x_pos, background2_y_pos);
-
-
-        //printf("test 1 \n");	
+	
 	// Spawning enemy ships
 	ship_spawner->spawnShips(frames, enemy_ships, weapons);
-
-        //printf("test 2 \n");		
 	
 	// MAIN SHIP
 	// Read input commands for the main ship, also read for quitting with Enter (I'll remove this after testing)
 	main_ship->moveShips(quit, SCREEN_HEIGHT, SCREEN_WIDTH);
 	main_ship->showShips(screen);
 	main_ship->generateProjectiles(ally_projectiles, enemy_ships);
-
+	
 	//ENEMY SHIPS
 	enemy_ships->moveShips(quit, SCREEN_HEIGHT, SCREEN_WIDTH);
 	enemy_ships->showShips(screen);
@@ -165,7 +165,6 @@ int game(std::string Ships_File)
 	
 	enemy_projectiles->moveProjectiles();
 	enemy_projectiles->showProjectiles(screen);
-
 	
 	// COLLISION DETECTION
 	main_ship->checkProjectileHit(enemy_projectiles);
@@ -194,7 +193,6 @@ int game(std::string Ships_File)
 	    usleep(Clocks_Error/CLOCKS_PER_SEC*1e6);
 	  }
 	}
-	
 	//Update the screen  
 	if( refresh_screen(screen)  == -1 )
 	  {
